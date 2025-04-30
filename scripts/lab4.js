@@ -26,7 +26,7 @@ function discountPrices(prices, discount) {
 
     const discounted = [];
     for (let i = 0; i < prices.length; i++) {
-        let discountedPrice = prices[i] * (1 - discount); // calculate fresh per item
+        let discountedPrice = prices[i] * (1 - discount); // calculate fresh per item.
         discounted.push(discountedPrice);
     }
 
