@@ -6,13 +6,16 @@
  * @returns The sum of the two numbers if add is true, and false otherwise.
  */
 function sumValues(num1, num2, add) {
-    if (add) {
-        let result = 0; // changed from const to let to allow reassignment
-        result = num1 + num2;
-        return result;
-    } else {
-        return !add;
-    }
+  // 1) type checks
+  if (typeof num1 !== 'number' || typeof num2 !== 'number' || typeof add !== 'boolean') {
+    return false;
+  }
+  // 2) if add is false
+  if (!add) {
+    return false;
+  }
+  // 3) otherwise
+  return num1 + num2;
 }
 
 /**
