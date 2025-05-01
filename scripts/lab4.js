@@ -25,15 +25,16 @@ function sumValues(num1, num2, add) {
  * @returns An array of each price's new price after the discount is applied, or false if the array is empty.
  */
 function discountPrices(prices, discount) {
-    if (prices.length === 0) return false;
-
-    const discounted = [];
-    for (let i = 0; i < prices.length; i++) {
-        let discountedPrice = prices[i] * (1 - discount); // calculate fresh per item.
-        discounted.push(discountedPrice);
-    }
-
-    return discounted;
+  if (!Array.isArray(prices) || typeof discount !== 'number') {
+    return false;
+  }
+  if (prices.length === 0) return false;
+  const discounted = [];
+  for (let i = 0; i < prices.length; i++) {
+    const p = prices[i] * (1 - discount);
+    discounted.push(Math.round(p * 100) / 100);
+  }
+  return discounted;
 }
 
 module.exports = { sumValues, discountPrices };
